@@ -54,4 +54,11 @@ A duty is market-backed if at least 2 of the 4 ads give it a ✓. Checked 29 Oct
 - “You will work alongside colleagues in Financial audit ... organisation’s key financial processes”
 
 ## Conclusion
-The JD is supportd by the market. Duties 1,2,4,6,8, and 9 are not market-backed, however, Northbridge wants to keep its NHS and council contracts and reach ISO 27001 certification in 2027 so it is important that a risk register is kept.
+Five of the ten duties are market-backed (3, 4, 5, 7, 10): questionnaires, risk register, supplier assurance, audit evidence and reporting. The other five stay because Northbridge needs them:
+
+Duty 9 (incidents): council contracts require incident notice within 24 hours, and UK GDPR requires a processor to tell its customers about breaches without delay.
+Duty 1: ISO 27001 control A.5.9 requires an asset inventory, and Northbridge has none. 
+Duty 2: ISO 27001 clause 4.3 requires a defined scope before certification, and Northbridge is aiming for certification in 2027.
+Duty 6: It is necessary that Northbridge's policy exceptions are managed and it's contracts reviewed for security clauses
+Duty 8: Cyber Essentials Plus and the NHS DSPT both expect staff security training.
+Duty 9: Mandatory paperwork and records are required to satisfy auditors. ISO 27001 control A5.24 to A.5.28
