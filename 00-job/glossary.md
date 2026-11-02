@@ -10,3 +10,4 @@ Add every new term the day you meet it: the word, what it means in plain English
 | Commit | One saved snapshot of changes in a repo, with a message saying what changed | Day 1 |
 | Push | Sending your commits from your laptop up to GitHub | Day 1 |
 | Ticket | A logged request for work, with an owner, a deadline and a record of what was done | Day 1 |
+| DPIA | Data Protection Impact Assessment: A formal written process used to identify and minimise privacy that involves high-risk processing of personal data (e.g. location tracking) | GRC-001 |
