@@ -1,0 +1,13 @@
+# Open questions from the onboarding pack review
+
+Reviewed: Mon 2 Nov 2026 (GRC-001). Source: onboarding pack, sections "Your employer" and "Risk scoring method".
+Method: four cross-checks (dates, table against table, sensitive data, people).
+
+| # | What doesn't add up | Where in the pack | Question | To | Why it matters |
+| --- | --- | --- | --- | --- | --- |
+| Q1 | Systems list last updated June 2026, but the US pilot started Sep 2026 | Systems list; Company facts | Were any systems, integrations or data stores added for the US pilot? | Kwame Boateng, IT Manager | Missing systems are never risk-assessed; feeds GRC-002 asset inventory |
+| Q2 | Criminal offence data (DBS certificate) is collected, but obligations register lacks DPA 2018 Schedule 1 conditions | Data Inventory; Obligations Register | Does our obligations register formerly list the specific DPA 2018 Schedule 1 conditions required for processing carers' criminal conviction data? | Grace Whitfield, Data Protection Officer | Processing criminal data without Schedule 1 conditions breaches UK GDPR Article 10 |
+| Q3 | Carers' real-time GPS location data is collected by the mobile app, but encryption and retention safeguards are omitted from specs | Data Flows; Technical Architecture | What specific encryption and retention safeguards are currently applied to carers' real-time GPS location data stored in the database | Kwame Boateng, IT Manager | Unencrypted or indefinitely retianed location data creates severe privacy and regulatory exposure |
+| Q4 | Staff vetting stores scanned DBS certificates, but retention schedules and secure deletion rules are undefined | HR Vetting Policy; Data inventory | How long are staff DBS certificate scans retained after onboarding, and what secure deletion process is enforced? | Tom Adeyemi, HR / IT | Retaining criminal record data longer than legally necessary violates data protection principles |
+| Q5 | Data-flow map references an AWS S3 backup bucket for patient records, but the master systems inventory does not list it | Data-Flow Map; Systems List | Why is the AWS S3 backup bucket mentioned in the data-flow map absent from the master systems inventory? | Kwame Boateng, IT Manager | Uninventoried data stores are omitted from vulnerability management and disaster recovery |
+| Q6 | Priya Raman is listed as both the implementer of security controls (Head of Security) and their independent reviewer | Governance Structure; Roles & Responsibilities | How do we maintain objectivity in our ISMS audit program when the Head of Security also acts as the internal control auditor? | Priya Raman, Head of Security and Compliance | ISO 27001 requires independent internal auditing to ensure unbiased compliance verification |
