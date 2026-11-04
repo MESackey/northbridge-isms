@@ -2,35 +2,42 @@
 As of 3 Nov 2026 · Author: Junior GRC Analyst · Sources: onboarding pack, open-questions.md
 
 ## What we do
-Northbridge Health Ltd provides CarePath, a cloud-based software platform that lets home-care agencies schedule visits for carers and run Electronic Medication Administration Records (eMAR). The platform supports around 41,000 people receiving home care across the UK. 
+Northbridge makes CarePath, a cloud platform for home care and community health providers. Agencies use it to schedule carers' visits, keep care plans and electronic medication records (eMAR), and invoice councils. Carers use a mobile app that records their location when they check in, and families follow care through a family portal.
 
 ## Who we serve
-We serve home-care agencies and local authorities, supporting approximately 41,000 individuals receiving home care, plus a US home-health group participating in a pilot since September 2026.
+- 210 home care agencies, 6 local authorities and 2 NHS community trusts (pilot)
+- 1 US home-health group (pilot since September 2026)
+- About 41,000 service users, 9,800 carers using the app and 5,000 family portal users
 
 ## What data we hold, and where
-Patient care records and medical notes (special category health data): stored in the primary cloud database hosted on Amazon Web Services (AWS).
-Medication administration records (eMAR): stored in the AWS cloud environment.
-Carers' GPD check-in location data: stored in the AWS database upon visit check-in.
-Carers' Disclosure and Barring Service (DBS) certificate copies (criminal offence data): stored for partner agencies. 
-Staff records and internal administration files: managed via Microsoft 365 and local office systems. 
-Northbridge acts mostly as a data processor, handling personal and health data on behalf of home-care agencies (who act as data controllers).
+- Care plans, health needs, medication records and safeguarding notes for about 41,000 service users (special category health data): in CarePath, hosted on AWS in London.
+- Copies of carers' DBS certificates uploaded by agencies (criminal offence data): location not stated in the pack (open question).
+- Carers' names, contact details, GPS location at check-in and visit times (location marked high-risk): in CarePath.
+- Family portal accounts and messages: in CarePath.
+- Invoices to councils that refer to service users: in CarePath.
+- Staff HR records: BreatheHR. Customer contacts and deal notes: HubSpot.
+
+For care data we are mostly a **processor**: the agencies decide how their service users' data is used (they are the controllers). We are the controller for our own staff and customer-contact data.
 
 ## Who we answer to
-Information Commissioner's Office (ICO): enforces UK data protection law (UK GDPR), requiring data breach notifications within 72 hours.
-Care Quality Commission (CQC): inspects care providers and evaluates the safety and governance of care records.
-NHS England: requires passing the annual Data Security and Protection Toolkit (DSPT) assessment to maintain our NHS contracts.
-National Cyber Security Centre (NCSC): provides security guidance and frameworks such as Cyber Essentials Plus.
+- **UK GDPR (enforced by the ICO):** as a processor, we must keep data secure and tell the agencies about a breach without undue delay.
+- **Council contracts:** we must tell a council within 24 hours of any incident affecting its data.
+- **NHS Data Security and Protection Toolkit (DSPT):** a yearly self-assessment we must pass to keep the NHS pilots.
+- **Cyber Essentials Plus:** required by council contracts; renewal due March 2027.
+- **ISO 27001:** the board's target is certification by Q3 2027.
+- **DCB0129:** the NHS standard for managing clinical safety risk in health software, owned by Hannah Cole (Clinical Safety Officer).
+- **SOC 2:** the US pilot customer has asked for a Type I report in 2027.
 
 ## Crown jewels
-1. CarePath primary cloud databse (AWS): if it were down or stolen, 41,000 vulnerable patients' health and medication records would be exposed or inaccessible, halting care delivery across providers.
+1. CarePath primary cloud database (AWS): if it were down or stolen, 41,000 service users' health and medication records would be exposed or inaccessible, halting care delivery across providers.
 2. Visit scheduling and eMAR system: if this service experienced an outage, carers could not track medication schedules or visit assignments, directly risking patient safety.
-3. Carer GPS location and check-in records: if compromised or lost, sensitive location patterns of vulnerable care workers and clients would breach privacy obligations and regulatory trust.
+3. Carer GPS location and check-in records: if compromised or lost, sensitive location patterns of vulnerable care workers and clients would breach privacy obligations and regulatory trust. (about 9,800 carers: Major on our impact scale) 
 
 ## Top five worries
-1. The system inventory was last updated in June 2026, meaning new infrastructure or data flows added for the September US pilot are completely uninventoried and unassessed.
-2. The Data held table identifies carers' GPS location data as high-risk, but our Obligation list contains no corresponding legal safeguards or rules covering it.
-3. We hold copies of carers' DBS cerificates (criminal offence data), but our Obligations list lacks any reference to the required UK GDPR Article 10 conditions.
-4. The Data held table provides no defined retention periods for sensitive data such as DBS copies and GPS check-in history.
-5. Key security leadership roles and responsibilities lack independent separation of duties, risking unmanaged conflicts between legal advisory and compliance oversight.
+1. We need an accurate risk register to answer the Eastmere security questionnaire and secure our re-tender, but our current risk register is out of date.
+2. Systems added for the US pilot may hold care data that nobody has checked for security.
+3. Carers' GPS check-in location data is marked high-risk, but we may never have assessed its privacy risks.
+4. We hold copies of carers' criminal offence data, but our obligations register has no rules covering it.
+5. Our Data Protection Officer is also Head of Legal, so nobody independent checks our privacy decisions. 
 
-Questions I couldn't answer yet: see open-questions.md 
+Questions I couldn't answer yet: see [open-questions.md](open-questions.md)  
