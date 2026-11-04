@@ -2,7 +2,7 @@
 As of 3 Nov 2026 · Author: Junior GRC Analyst · Sources: onboarding pack, open-questions.md
 
 ## What we do
-Northbridge makes CarePath, a cloud platform for home care and community health providers. Agencies use it to schedule carers' visits, keep care plans and electronic medication records (eMAR), and invoice councils. Carers use a mobile app that records their location when they check in, and families follow care through a family portal.
+Northbridge makes CarePath, a cloud platform for home care and community health providers. Agencies use it to schedule carers' visits, keep care plans and electronic medication records (eMAR), and invoice councils.    Carers' mobile app records their location at check-in, and families follow care through a family portal.
 
 ## Who we serve
 - 210 home care agencies, 6 local authorities and 2 NHS community trusts (pilot)
@@ -29,15 +29,15 @@ For care data we are mostly a **processor**: the agencies decide how their servi
 - **SOC 2:** the US pilot customer has asked for a Type I report in 2027.
 
 ## Crown jewels
-1. CarePath primary cloud database (AWS): if it were down or stolen, 41,000 service users' health and medication records would be exposed or inaccessible, halting care delivery across providers.
-2. Visit scheduling and eMAR system: if this service experienced an outage, carers could not track medication schedules or visit assignments, directly risking patient safety.
-3. Carer GPS location and check-in records: if compromised or lost, sensitive location patterns of vulnerable care workers and clients would breach privacy obligations and regulatory trust. (about 9,800 carers: Major on our impact scale) 
+1. **CarePath database (AWS):** if stolen, 41,000 service users' health records are exposed; if down, care stops across 210 agencies (Severe).
+2. **Visit scheduling and eMAR:** if down, carers miss visits and service users could miss medication (Severe).
+3. **Carers' GPS check-in records:** if stolen, they show where about 9,800 carers are and when (Major).
 
 ## Top five worries
-1. We need an accurate risk register to answer the Eastmere security questionnaire and secure our re-tender, but our current risk register is out of date.
+1. We could lose the Eastmere re-tender in March 2027: it needs a maintained risk register, and ours is a 2024 spreadsheet with 9 risks and no owners.
 2. Systems added for the US pilot may hold care data that nobody has checked for security.
-3. Carers' GPS check-in location data is marked high-risk, but we may never have assessed its privacy risks.
-4. We hold copies of carers' criminal offence data, but our obligations register has no rules covering it.
+3. We track carers' locations but may never have assessed the privacy risk.
+4. We may be breaking the stricter rules for criminal offence data (carers' DBS copies) without knowing.
 5. Our Data Protection Officer is also Head of Legal, so nobody independent checks our privacy decisions. 
 
 Questions I couldn't answer yet: see [open-questions.md](open-questions.md)  
