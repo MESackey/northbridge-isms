@@ -15,5 +15,5 @@ Checked by: Junior GRC Analyst · Date: Tue 10 Nov 2026 · Signed in as: grc-adm
 
 ## Not on IT's list
 1. **S3 bucket `cp-exports-temp-mes`** (eu-west-2): found via S3 → All AWS Regions. Not on Kwame's systems list. Created 9 Nov by `grc-admin` (CloudTrail event history). The name suggests CarePath data exports; it is currently empty. No owner tag and not managed in Terraform. Owner unknown: ask the CTO, who owns AWS.
-2. **EC2 instance `reports-legacy`** (eu-west-2): found via EC2 → AWS Global View / Instances. Not on Kwame's systems list. Created 9 Nov by `grc-admin` (CloudTrail event history). The name suggests legacy reporting functions; it is currently running without an owner tag or Terraform management. Owner unknown: ask the CTO, who owns AWS.
+2. **EC2 instance `reports-legacy`** (eu-west-2): found via EC2 → AWS Global View / Instances. Not on Kwame's systems list. Created 9 Nov by `grc-admin` (CloudTrail event history). The name suggests legacy reporting functions; it is currently stopped without an owner tag or Terraform management. Owner unknown: ask the CTO, who owns AWS.
 3. **IAM user `CLIusage1`**: found via IAM → Users. Not on Kwame's systems list or IT records. Inactive user with no active access keys remaining. Owner unknown: ask the IT Manager or CTO.
