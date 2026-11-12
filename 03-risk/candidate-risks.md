@@ -1,5 +1,7 @@
 # Candidate risks (for the GRC-006 register)
 
+Listed during GRC-002 (12 Nov 2026). Each becomes a full, scored risk entry in GRC-006.
+
 | # | Candidate risk | Found in | Asset IDs |
 | --- | --- | --- | --- |
 | C-01 | No CloudTrail trail, so activity in AWS can't be investigated after an incident | GRC-002 discovery D5 | A-015 |
