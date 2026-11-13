@@ -13,3 +13,4 @@ Add every new term the day you meet it: the word, what it means in plain English
 | DPIA | Data Protection Impact Assessment: A formal written process used to identify and minimise privacy that involves high-risk processing of personal data (e.g. location tracking) | GRC-001 |
 | Power/ Interest grid | A stakeholder mapping tool that categorises people based on how much power they have to affect your work (High/ Low) and how interested they are in it (High/ Low) to determine engagement strategy | GRC-001 |
 | Sub processor | A third-party supplier that a data processor (like Northbridge) passes personal data to; under UK GDPR, a processor needs the controller's permission before using one | GRC-003 |
+| Data minimisation | A UK GDPR principle requiring that personal data collected, shared, and retained must be adequate, relevant, and limited to what is necessary in relation to the purposes for which they are processed. | GRC-003 |

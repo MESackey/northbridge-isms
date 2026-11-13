@@ -74,4 +74,37 @@ Encryption labels: **Confirmed** (someone or a document has confirmed it), **Ass
 | F13 | Share | CarePath → Councils | Council invoices (D-11) | Assumed (web apps normally use HTTPS; not confirmed) | n/a | Pack (Data held) |
 
 ## Flows that worry me
-TO-FILL in Step 4.
+### W1 · Service-user names in application logs (F5, D-05)
+Because CarePath writes service-user names into CloudWatch logs, anyone with log access could see who receives care, leading to Restricted data being exposed outside the protections on the main database, and a breach of data minimisation.
+- **Evidence:** Leo: "some log lines include service-user names; it's on the backlog."
+- **Encryption:** at rest Assumed. That doesn't help, because the problem is who can read the logs.
+- **Unknowns:** how long logs are kept; who has access.
+- **Candidate risk:** C-07
+
+### W2 · Care-plan screenshots kept in Zendesk (F8, D-06)
+Because agencies attach care-plan screenshots to support tickets in Zendesk, Restricted care data is copied into a third-party ticketing platform outside AWS, leading to uncontrolled proliferation of sensitive health records and a breach of data minimisation.
+- **Evidence:** Marcus: "agencies attach care-plan screenshots when support agents ask."
+- **Encryption:** in transit Assumed (HTTPS); at rest Unknown until supplier security review.
+- **Unknowns:** how long Zendesk retains ticket attachments; which support staff and supplier personnel can view them.
+- **Candidate risk:** C-08
+
+### W3 · Unencrypted reminder texts sent via SignalPost (F9 / F10, D-07)
+Because SignalPost transmits visit reminder texts over standard SMS, service-user names, mobile numbers, and visit times are sent unencrypted over cellular networks, leading to interception risks and exposure of Restricted data on recipient mobile devices.
+- **Evidence:** Marcus interview; Systems list (SignalPost); visit time and name reveal receipt of care.
+- **Encryption:** Not encrypted (text messages aren't protected on their way to the phone).
+- **Unknowns:** whether mobile carriers cache SMS message text; who has physical access to recipient phones.
+- **Candidate risk:** C-09
+
+### W4 · Invoice reports exported to staff laptops (F11, D-08)
+Because Customer Success staff export council invoice reports containing service-user references to Excel on local laptops, Restricted data leaves secure cloud storage onto unverified endpoints, leading to potential data loss or unauthorized local access if laptops are misplaced.
+- **Evidence:** Kwame interview ("invoice reports exported to Excel by Customer Success staff").
+- **Encryption:** at rest Unknown (Intune device management is present, but full disk encryption status is unconfirmed).
+- **Unknowns:** whether local Excel exports are deleted after use; whether staff laptops have confirmed disk encryption.
+- **Candidate risk:** C-10
+
+### W5 · Unverified deletion lifecycle for departed customers (F12, D-01)
+Because Northbridge relies on unverified contractual promises to delete customer data 90 days after contract termination without technical verification, departed care records may persist indefinitely in the database and backups, leading to retention violations under UK GDPR.
+- **Evidence:** Grace interview: "promised in contracts; nobody has checked."
+- **Encryption:** n/a (governance and process risk).
+- **Unknowns:** whether automated deletion scripts exist; whether backups also purge departed customer records.
+- **Candidate risk:** C-11

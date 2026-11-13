@@ -11,3 +11,9 @@ Listed during GRC-002 (12 Nov 2026). Each becomes a full, scored risk entry in G
 | C-05 | Production assets in the systems list can't be verified, so the inventory may be incomplete | GRC-002 discovery D9 | A-012, A-013, A-014 |
 | C-06 | Nobody knows where carers' DBS copies are stored | GRC-001 Q2; GRC-002 inventory | A-002 | 
 Leo says S3 (13 Nov); not verified.
+| C-07 | Service-user names in application logs, readable by anyone with log access | GRC-003 W1 (flow F5) | Data D-05 |
+| C-08 | Care-plan screenshots stored in Zendesk outside core AWS boundaries | GRC-003 W2 (flow F8) | Data D-06 |
+| C-09 | Unencrypted reminder texts transmitting visit details and names over SMS | GRC-003 W3 (flows F9/F10) | Data D-07 |
+| C-10 | Restricted invoice reports exported and stored locally on staff laptops | GRC-003 W4 (flow F11) | Data D-08 |
+| C-11 | Unverified 9o-day data deletion process risking retention compliance failures | GRC-001 Q2; GRC-002 inventory | GRC-003 W5 (flow F12) | Data D-01 |
+Leo says S3 (13 Nov); not verified.
