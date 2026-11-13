@@ -83,7 +83,7 @@ Because CarePath writes service-user names into CloudWatch logs, anyone with log
 
 ### W2 · Care-plan screenshots kept in Zendesk (F8, D-06)
 Because agencies attach care-plan screenshots to support tickets in Zendesk, Restricted care data is copied into a third-party ticketing platform outside AWS, leading to uncontrolled proliferation of sensitive health records and a breach of data minimisation.
-- **Evidence:** Marcus: "agencies attach care-plan screenshots when support agents ask."
+- **Evidence:** Marcus: "support agents ask agencies to attach screenshots to Zendesk tickets."
 - **Encryption:** in transit Assumed (HTTPS); at rest Unknown until supplier security review.
 - **Unknowns:** how long Zendesk retains ticket attachments; which support staff and supplier personnel can view them.
 - **Candidate risk:** C-08
@@ -97,7 +97,7 @@ Because SignalPost transmits visit reminder texts over standard SMS, service-use
 
 ### W4 · Invoice reports exported to staff laptops (F11, D-08)
 Because Customer Success staff export council invoice reports containing service-user references to Excel on local laptops, Restricted data leaves secure cloud storage onto unverified endpoints, leading to potential data loss or unauthorized local access if laptops are misplaced.
-- **Evidence:** Kwame interview ("invoice reports exported to Excel by Customer Success staff").
+- **Evidence:** Kwame interview ("a few Customer Success staff export invoice reports to Excel on their laptops to reconcile them.").
 - **Encryption:** at rest Unknown (Intune device management is present, but full disk encryption status is unconfirmed).
 - **Unknowns:** whether local Excel exports are deleted after use; whether staff laptops have confirmed disk encryption.
 - **Candidate risk:** C-10
