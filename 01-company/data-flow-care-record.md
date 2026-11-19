@@ -59,19 +59,20 @@ Encryption labels: **Confirmed** (someone or a document has confirmed it), **Ass
 
 | Flow | Stage | From → To | Data (inventory ID) | In transit | At rest | Evidence |
 | --- | --- | --- | --- | --- | --- | --- |
-| F1 | Create | Agency staff → CarePath | Care records (D-01) | Assumed (web apps normally use HTTPS; not confirmed) | n/a | Pack (Company facts) |
-| F2 | Store | CarePath → PostgreSQL database | Care records (D-01); GPS records (D-09); family portal data (D-10) | Unknown (internal AWS network encryption not confirmed) | Unknown (AWS only encrypts a database if it was set up that way) | Leo interview |
-| F3 | Store | CarePath → S3 document store | Care-plan PDFs (D-02); DBS scans (D-03) | Unknown (internal AWS network encryption not confirmed) | Assumed (AWS default encryption since Jan 2023; assumption A3) | Leo interview; assumption A3 |
-| F4 | Back up | Database → backups (London only) | All database data (D-04) | Unknown (internal AWS backup stream encryption not confirmed) | Unknown (backup encryption not confirmed) | Leo interview |
+| F1 | Create | Agency staff → CarePath | Care records (D-01) | Confirmed by owner (Leo, 17 Nov: TLS 1.2+ at load balancer) | n/a | Pack (Company facts) |
+| F2 | Store | CarePath → PostgreSQL database | Care records (D-01); GPS records (D-09); family portal data (D-10) | Not enforced (Leo, 17 Nov: TLS available, not enforced) | Not encrypted (Leo, 17 Nov: database created 2021 without encryption) | Leo interview |
+| F3 | Store | CarePath → S3 document store | Care-plan PDFs (D-02); DBS scans (D-03) | Unknown (internal AWS network encryption not confirmed) | Confirmed by owner (Leo, 17 Nov: AWS default S3 encryption) | Leo interview; assumption A3 |
+| F4 | Back up | Database → backups (London only) | All database data (D-04) | Unknown (internal AWS backup stream encryption not confirmed) | Not encrypted (Leo, 17 Nov: backups and snapshots unencrypted) | Leo interview |
 | F5 | Log | CarePath → CloudWatch logs | Service-user names in logs (D-05) | Unknown (internal AWS log stream encryption not confirmed) | Assumed (AWS states that it always encrypts stored log data) | Leo interview |
-| F6 | Use | Carer mobile app ↔ CarePath | GPS check-ins; eMAR updates (D-09) | Assumed (mobile app communicating over HTTPS; not confirmed) | Unknown (app local storage encryption not confirmed) | Pack (Company facts) |
-| F7 | Use | Family portal users ↔ CarePath | Family portal accounts and messages (D-10) | Assumed (web apps normally use HTTPS; not confirmed) | n/a | Pack (Company facts) |
+| F6 | Use | Carer mobile app ↔ CarePath | GPS check-ins; eMAR updates (D-09) | Confirmed by owner (Leo, 17 Nov: TLS 1.2+ at load balancer) | Unknown (app local storage encryption not confirmed) | Pack (Company facts) |
+| F7 | Use | Family portal users ↔ CarePath | Family portal accounts and messages (D-10) | Confirmed by owner (Leo, 17 Nov: TLS 1.2+ at load balancer) | n/a | Pack (Company facts) |
 | F8 | Share | Agency staff → Zendesk ↔ support agents | Care-plan screenshots (D-06) | Assumed (supplier connections normally use HTTPS) | Unknown (unknown until you've read the supplier's security page) | Marcus interview |
 | F9 | Share | CarePath → SignalPost | First name; mobile; visit time (D-07) | Assumed (supplier connections normally use HTTPS) | Unknown (unknown until you've read the supplier's security page) | Marcus interview |
 | F10 | Share | SignalPost → service users' phones (SMS) | Reminder texts (D-07) | Not encrypted (text messages aren't protected on their way to the phone) | n/a | Marcus interview |
-| F11 | Export | CarePath → staff laptops (Excel) | Invoice reports (D-08) | Assumed (download over HTTPS; not confirmed) | Unknown (the pack mentions Intune, but not disk encryption) | Kwame interview |
+| F11 | Export | CarePath → staff laptops (Excel) | Invoice reports (D-08) | Assumed (download over HTTPS; not confirmed) | Confirmed by owner (Kwame, 16 Nov: BitLocker enforced; compliance report requested) | Kwame interview |
 | F12 | Delete | Database → deleted 90 days after a customer leaves | All customer data | n/a | n/a | Grace interview: promised in contracts; nobody has checked |
-| F13 | Share | CarePath → Councils | Council invoices (D-11) | Assumed (web apps normally use HTTPS; not confirmed) | n/a | Pack (Data held) |
+| F13 | Share | CarePath → Councils | Council invoices (D-11) | Confirmed by owner (Leo, 17 Nov: TLS 1.2+ at load balancer) | n/a | Pack (Data held) |
+Updated 18 Nov 2026 with owner replies (Grace 16 Nov, Kwame 16 Nov, Leo 17 Nov).
 
 ## Flows that worry me
 ### W1 · Service-user names in application logs (F5, D-05)
