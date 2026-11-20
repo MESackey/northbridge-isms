@@ -72,7 +72,7 @@ Encryption labels: **Confirmed** (someone or a document has confirmed it), **Ass
 | F11 | Export | CarePath → staff laptops (Excel) | Invoice reports (D-08) | Assumed (download over HTTPS; not confirmed) | Confirmed by owner (Kwame, 16 Nov: BitLocker enforced; compliance report requested) | Kwame interview |
 | F12 | Delete | Database → deleted 90 days after a customer leaves | All customer data | n/a | n/a | Grace interview: promised in contracts; nobody has checked |
 | F13 | Share | CarePath → Councils | Council invoices (D-11) | Confirmed by owner (Leo, 17 Nov: TLS 1.2+ at load balancer) | n/a | Pack (Data held) |
-Updated 18 Nov 2026 with owner replies (Grace 16 Nov, Kwame 16 Nov, Leo 17 Nov).
+Updated 19 Nov 2026 with owner replies (Grace 16 Nov, Kwame 16 Nov, Leo 17 Nov).
 
 ## Flows that worry me
 ### W1 · Service-user names in application logs (F5, D-05)
