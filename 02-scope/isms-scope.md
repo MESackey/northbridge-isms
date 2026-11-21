@@ -1,5 +1,5 @@
 # ISMS scope · Northbridge Health Ltd
-Version 0.1 (draft) · 20 Nov 2026 · Author: Junior GRC Analyst · Approver: Priya Raman (Head of Security and Compliance)
+Version 1.0 · Approved by Priya Raman, 21 Nov 2026 · Author: Junior GRC Analyst · Approver: Priya Raman (Head of Security and Compliance)
 Sources: onboarding pack; [asset inventory](../01-company/asset-inventory.csv); [data-flow map](../01-company/data-flow-care-record.md); scope guidance from Priya (19 Nov)
 
 ## Scope statement
