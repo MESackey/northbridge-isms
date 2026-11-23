@@ -10,7 +10,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 | 2 | Cyber Essentials Plus | Confirmed |
 | 3 | UK data location | Partial |
 | 4 | MFA | |
-| 5 | Encryption | Partial |
+| 5 | Encryption | Gap |
 | 6 | Penetration testing | Gap |
 | 7 | Risk register | Gap |
 | 8 | Incident response | Partial |
@@ -36,78 +36,82 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Confidence:** Confirmed
 **Note (internal):** it expires around 12 Mar 2027, the same month as the Eastmere re-tender. Renewal needs to be booked early.
 
-### Q3 · Where is council data stored and processed geographically?
-**Answer:** Our CarePath core platform—including the US pilot environment—is hosted in AWS London (`eu-west-2`), with backups kept in London. Some support and messaging workflows involve third-party suppliers (Zendesk and SignalPost) whose exact storage regions have not yet been verified, and council invoice exports may be generated on UK staff laptops.
-**Evidence:** data-flow-care-record.md; open-questions.md Q1 (Priya, 23 Nov: US pilot on London platform); Zendesk and SignalPost storage locations not yet confirmed.
+### Q3 · Is all council data stored and processed in the UK?
+**Answer:** No, not all. Our CarePath core platform and backups are hosted in AWS London (`eu-west-2`) in the UK, and council invoice exports may be generated on UK staff laptops. However, our Zendesk account is hosted in the EU (Ireland and Germany—lawful under UK adequacy for the EU, but outside the UK), and SignalPost is a UK company whose message log storage location has not yet been confirmed.
+**Evidence:** data-flow-care-record.md; Grace Whitfield, 23 Nov (Zendesk EU hosting in Ireland and Germany; SignalPost message log location asked/unconfirmed).
 **Confidence:** Partial
-**Gap action:** Grace Whitfield to review Q3 before Sofia sees the draft; verify Zendesk and SignalPost storage locations during supplier reviews.
+**Gap action:** Confirm SignalPost message log storage location and document UK/EU data residency details. Owner: Grace Whitfield. By: date not yet agreed (asked Grace Whitfield, 23 Nov).
 
-### Q4 · Do you enforce multi-factor authentication (MFA)?
+### Q4 · Is MFA enforced for all staff and all administrative access?
 **Answer:**
 **Evidence:**
 **Confidence:**
 **Gap action:**
 
-### Q5 · How is council data encrypted at rest and in transit?
-**Answer:** In transit, public connections to CarePath use TLS 1.2 or higher at the load balancer, while SMS reminder texts are sent unencrypted over cellular networks and internal application-to-database TLS is not currently enforced. At rest, S3 object storage uses default encryption, whereas our legacy production PostgreSQL database and its backups/snapshots are not encrypted at rest, and we are planning remediation.
-**Evidence:** data-flow-care-record.md (flows F1–F13); Leo Park, 23 Nov (owner-confirmed, not yet verified).
-**Confidence:** Partial
-**Gap action:** Priority remediation for unencrypted database and backups (C-12, owned by Priya/Leo); verify production configurations and enforce internal TLS.
+### Q5 · Is council data encrypted at rest and in transit?
+**Answer:** Partly. In transit: connections from the internet to CarePath use TLS 1.2. Traffic between our load balancer and our application servers, inside our private AWS network, is not yet encrypted. SMS appointment reminders are standard text messages, which are not encrypted. At rest: documents in our file storage are encrypted, but our main database and its backups are not yet encrypted. This has been escalated to our leadership, and a remediation date is being agreed.
+**Evidence:** Leo Park, 23 Nov (owner-confirmed, not verified); data-flow-care-record.md F3, F4, F10, F13; C-12.
+**Confidence:** Gap
+**Gap action:** Now: S3 encrypted; internet traffic on TLS 1.2. Next: encrypt the database and backups (C-12; about 2 hours of downtime, Leo 17 Nov); encrypt load balancer to app traffic. Owner: David Lin (decision), Leo Park (delivery). By: date not yet agreed (Priya raising C-12 with David, 23 Nov).
 
-### Q6 · Do you carry out independent penetration testing at least annually?
-**Answer:** Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test has not yet been commissioned and is included in our Q1 2027 budget request.
+### Q6 · Do you commission an independent penetration test at least annually?
+**Answer:** No. Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test has not yet been commissioned and is included in our Q1 2027 budget request.
 **Evidence:** Priya Raman, 23 Nov (CREST report dated 14 Feb 2025; highs fixed Apr 2025; 3 mediums open; no 2026 test commissioned; Q1 2027 budget request).
 **Confidence:** Gap
 **Gap action:** Commission an independent penetration test and close remaining medium findings; owner: Priya Raman / leadership budget approval (Q1 2027 target).
 
-### Q7 · Do you maintain a formal information security risk register?
-**Answer:** We do not yet have a formally maintained risk register in place, though we have compiled candidate risks from our discovery and data-flow reviews and are scheduled to establish the formal risk register in early December 2026.
+### Q7 · Do you maintain a risk register reviewed at least quarterly?
+**Answer:** Not yet. We do not currently maintain a risk register reviewed at least quarterly, and no quarterly review cadence has been agreed yet. We have compiled candidate risks from our discovery and data-flow reviews and are scheduled to rebuild the formal risk register in GRC-006 by 5 December 2026.
 **Evidence:** company-profile.md (2024 spreadsheet baseline); obligations-register.csv (O-14 Partial); candidate-risks.md (C-01 to C-14); GRC-006 due 5 Dec 2026.
 **Confidence:** Gap
-**Gap action:** Establish and populate the formal risk register in GRC-006 (due 5 Dec 2026); owner: Priya Raman / Junior GRC Analyst.
+**Gap action:** Establish the formal risk register in GRC-006 (by 5 Dec 2026) and agree a formal review cadence. Owner: Priya Raman. By: 5 Dec 2026 for register launch; quarterly review date not yet agreed (asked Priya Raman, 23 Nov).
 
-### Q8 · How do you manage security incidents and breach notifications?
-**Answer:** We have an incident response plan at draft version 0.3, which has not yet been formally tested. Where customer contracts require notification within 24 hours of an incident affecting council data, we do not yet have a verified procedure and contact list in place to confirm that timeline.
+### Q8 · Describe your incident response process and your notification timescale to the council.
+**Answer:** Partly. We have an incident response plan at draft version 0.3, which has not yet been reviewed in full or formally tested, and we do not yet have a verified procedure and contact list in place to confirm a 24-hour notification timeline to the council.
 **Evidence:** Priya Raman facts (IR plan v0.3, untested); obligations-register.csv (O-04 and O-09 Unknown).
 **Confidence:** Partial
-**Gap action:** Finalize and test the incident response plan and establish a verified 24-hour council notification procedure; owner: Head of Legal and DPO / Head of Security and Compliance.
+**Gap action:** Review IR plan v0.3 and establish/verify the incident response and 24-hour council notification procedure. Owner: Priya Raman (IR plan) and Grace Whitfield (24-hour council notice, O-09). By: date not yet agreed (requested IR plan v0.3 from Priya Raman, 23 Nov; council clause/procedure with Grace Whitfield).
 
-### Q9 · Which third-party sub-processors handle council data, and how are they controlled?
-**Answer:** Third-party suppliers supporting CarePath workflows include AWS (hosting), Zendesk (support tickets, where care-plan screenshots may be attached), and SignalPost (SMS reminder delivery). Formal supplier security assessments have not yet been completed for Zendesk and SignalPost, and we cannot currently demonstrate documented agency authorisation for their use as sub-processors.
-**Evidence:** data-flow-care-record.md (F8–F10); data-inventory.csv (D-06, D-07); obligations-register.csv (O-02 Not met); Grace Whitfield, 16 Nov & 23 Nov (C-14).
+### Q9 · List every sub-processor that can access council data.
+**Answer:** Partly. Third-party sub-processors associated with CarePath workflows are:
+- AWS (hosting and storage): CarePath application, database, and file storage in London (`eu-west-2`).
+- Zendesk (customer support ticketing): support tickets and attached care-plan screenshots; account hosted in the EU (Ireland and Germany).
+- SignalPost (SMS appointment reminders): service-user first name, mobile number, and visit time; UK company (message log storage location unconfirmed).
+We cannot currently show documented agency authorisation for Zendesk and SignalPost as sub-processors, and Grace Whitfield will send agencies a sub-processor notice by Friday 4 December 2026.
+**Evidence:** data-flow-care-record.md (F2–F10); data-inventory.csv (D-01 to D-09); obligations-register.csv (O-02 Not met); Grace Whitfield, 16 Nov (C-14) and 23 Nov (EU hosting; notice by 4 Dec).
 **Confidence:** Partial
-**Gap action:** Grace Whitfield to review Q9 before Sofia sees the draft; obtain documented agency sub-processor authorisations (C-14) and complete supplier security assessments (GRC-007+).
+**Gap action:** Issue sub-processor notice to agencies and confirm documented sub-processor authorisations (C-14). Owner: Grace Whitfield. By: Fri 4 Dec 2026.
 
-### Q10 · What staff security training and pre-employment vetting do you carry out?
+### Q10 · Are all staff trained in security annually, and vetted before access?
 **Answer:**
 **Evidence:**
 **Confidence:**
 **Gap action:**
 
-### Q11 · How quickly is access revoked when staff or users leave?
+### Q11 · How quickly is access removed when staff leave?
 **Answer:**
 **Evidence:**
 **Confidence:**
 **Gap action:**
 
-### Q12 · Do you test business continuity and disaster recovery plans?
+### Q12 · Is your business continuity and disaster recovery plan tested at least annually?
 **Answer:**
 **Evidence:**
 **Confidence:**
 **Gap action:**
 
-### Q13 · Do you hold NHS Data Security and Protection Toolkit (DSPT) compliance?
+### Q13 · Do you hold a current DSPT assessment at Standards Met?
 **Answer:** Yes. Our published DSPT status for 2025–26 is Standards Met, published on 26 June 2026.
 **Evidence:** Priya Raman, 23 Nov (public DSPT status 2025–26, Standards Met, published 26 Jun 2026).
 **Confidence:** Confirmed
 
-### Q14 · What are your patch timescales for systems and vulnerabilities?
+### Q14 · Are critical and high-risk security patches applied within 14 days?
 **Answer:**
 **Evidence:**
 **Confidence:**
 **Gap action:**
 
-### Q15 · How do you govern the use of AI tools?
+### Q15 · Do you use AI tools to process council data?
 **Answer:**
 **Evidence:**
 **Confidence:**
