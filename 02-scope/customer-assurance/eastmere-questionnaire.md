@@ -1,4 +1,4 @@
-# Eastmere supplier security questionnaire · Draft v0.1
+# Eastmere supplier security questionnaire · Draft v0.1 · sent to Sofia Wed 25 Nov
 Prepared by: Junior GRC Analyst · Review: Sofia Brennan (wording), Grace Whitfield (Q3, Q9) · Sign-off: Priya Raman
 Council data means: service users' care records, visit logs and GPS, agency staff details including DBS scans (criminal offence data), and council invoices. All Restricted. (Grace, 23 Nov)
 The Evidence and Gap action lines are internal. They are removed before this goes to Eastmere.
@@ -16,7 +16,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 | 8 | Incident response | Partial |
 | 9 | Sub-processors | Partial |
 | 10 | Training and vetting | Gap |
-| 11 | Leavers | Gap |
+| 11 | Leavers | Partial |
 | 12 | BC/DR testing | Gap |
 | 13 | DSPT | Confirmed |
 | 14 | Patching | Partial |
@@ -43,16 +43,16 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Gap action:** Confirm SignalPost message log storage location and document UK/EU data residency details. Owner: Grace Whitfield. By: date not yet agreed (asked Grace Whitfield, 23 Nov).
 
 ### Q4 · Is MFA enforced for all staff and all administrative access?
-**Answer:** Partly. All staff Microsoft 365 accounts are covered by a Conditional Access policy requiring MFA, except a documented break-glass admin account (stored in the office safe) and a printer scan-to-email account (`scan-sthn`). For production AWS administrative access, engineers authenticate via IAM Identity Center with MFA enforced and root uses a hardware key, though one legacy deployment IAM user (`ci-deploy`) uses long-lived access keys over a year old without console MFA.
-**Evidence:** Kwame Boateng, 24 Nov (Entra MFA registration export seen 24 Nov); Leo Park, 23 Nov (production MFA and `ci-deploy` key age owner-confirmed, not verified).
+**Answer:** Partly. All staff Microsoft 365 accounts are covered by a Conditional Access policy requiring MFA, except a break-glass admin account excluded by design (whose password is in the office safe) and a printer scan-to-email account. For production AWS administrative access, engineers authenticate via IAM Identity Center with MFA enforced and root uses a hardware key, though one legacy deployment account uses long-lived access keys over a year old without console MFA.
+**Evidence:** Kwame Boateng, 24 Nov (Entra MFA registration export seen 24 Nov; break-glass password in safe; `scan-sthn` excluded); Leo Park, 23 Nov (production MFA and `ci-deploy` key age owner-confirmed, not verified).
 **Confidence:** Partial
-**Gap action:** Review and retire/rotate the legacy `ci-deploy` access key, verify production MFA configurations, and document formal sign-off for break-glass/service account exceptions. Owner: Leo Park (AWS) and Kwame Boateng (Microsoft 365). By: date not yet agreed (asked Leo Park and Kwame Boateng, 24 Nov).
+**Gap action:** Review and retire/rotate the legacy deployment access key, verify production MFA configurations, and formalise governance around break-glass and service account exceptions. Owner: Leo Park (AWS) and Kwame Boateng (Microsoft 365). By: date not yet agreed (asked Leo Park and Kwame Boateng, 24 Nov).
 
 ### Q5 · Is council data encrypted at rest and in transit?
 **Answer:** Partly. In transit: connections from the internet to CarePath use TLS 1.2. Traffic between our load balancer and our application servers, inside our private AWS network, is not yet encrypted. SMS appointment reminders are standard text messages, which are not encrypted. At rest: documents in our file storage are encrypted, but our main database and its backups are not yet encrypted. Leadership has agreed to encrypt the database and backups, with a target before 31 December 2026.
 **Evidence:** Leo Park, 23 Nov (owner-confirmed, not verified); Priya Raman, 24 Nov (CTO agreed database and backup encryption target before 31 Dec 2026); data-flow-care-record.md F3, F4, F10, F13; C-12.
 **Confidence:** Gap
-**Gap action:** Encrypt production database and backups (C-12; ~2 hours downtime) and address unencrypted internal load-balancer-to-app and SMS reminder paths. Owner: David Lin (decision) and Leo Park (delivery). By: before 31 Dec 2026 for database/backup encryption target; load-balancer-to-app date not yet agreed (asked Leo Park, 23 Nov).
+**Gap action:** Encrypt production database and backups (C-12; ~2 hours downtime) and address unencrypted load-balancer-to-app and SMS reminder paths. Owner: David Lin (decision) and Leo Park (delivery). By: before 31 Dec 2026 for database/backup encryption target; load-balancer-to-app date not yet agreed (asked Leo Park, 23 Nov).
 
 ### Q6 · Do you commission an independent penetration test at least annually?
 **Answer:** No. Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test has not yet been commissioned and is included in our Q1 2027 budget request.
@@ -67,7 +67,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Gap action:** Launch the formal risk register and initiate quarterly steering group reviews. Owner: Priya Raman. By: 5 Dec 2026 for register launch; first quarterly review Jan 2027.
 
 ### Q8 · Describe your incident response process and your notification timescale to the council.
-**Answer:** Partly. We have an incident response plan at draft version 0.3 defining roles (incident lead, technical lead, and DPO/notification decision role), three severity levels, and six stages (detect, contain, assess, notify, recover, review), though the plan has not yet been tested. The current draft states notification "as soon as practicable" with no fixed timescale or council contact list, whereas we can commit to 24-hour notice in the contract once wording is confirmed.
+**Answer:** We will notify the council within 24 hours of becoming aware of an incident affecting council data. Our DPO is confirming the contract wording. Alongside that commitment, we have an incident response plan at draft version 0.3 defining roles (incident lead, technical lead, and DPO/notification decision role), three severity levels, and six stages (detect, contain, assess, notify, recover, review), though the plan has not yet been tested and the current draft states notification "as soon as practicable" without a council contact list.
 **Evidence:** Priya Raman, 24 Nov (IR plan v0.3 structure, untested, "as soon as practicable" wording, 24-hour contract commitment); obligations-register.csv (O-04 and O-09 Unknown).
 **Confidence:** Partial
 **Gap action:** Confirm council 24-hour notification clause wording, build the council contact list, and test IR plan v0.3. Owner: Grace Whitfield (notification clause/contacts) and Priya Raman (IR plan testing). By: date not yet agreed (asked Grace Whitfield and Priya Raman, 23–24 Nov).
@@ -89,9 +89,9 @@ We cannot currently show documented agency authorisation for Zendesk and SignalP
 **Gap action:** Restore annual security refresher training and review pre-employment vetting/DBS requirements across roles. Owner: Kwame Boateng and HR/leadership. By: date not yet agreed (asked Kwame Boateng, 24 Nov).
 
 ### Q11 · How quickly is access removed when staff leave?
-**Answer:** Not yet fully evidenced across all systems. When HR logs a leaver in BreatheHR, Microsoft 365 accounts are typically disabled on the last day (usually by 17:00), but revocation in AWS and other applications relies on a Slack message to engineering without a formal checklist or timestamped removal record.
-**Evidence:** Kwame Boateng, 24 Nov (owner-confirmed: M365 same-day disablement; Slack handoff to Leo for other systems with no checklist or removal log).
-**Confidence:** Gap
+**Answer:** Microsoft 365 access is removed on the member of staff's last day. For other systems we cannot currently evidence the timing, as revocation in AWS and other applications relies on a Slack message to engineering without a formal checklist or timestamped removal record.
+**Evidence:** Kwame Boateng, 24 Nov (owner-confirmed: M365 last-day disablement; Slack handoff to Leo for other systems with no checklist or removal log).
+**Confidence:** Partial
 **Gap action:** Implement a formal leaver access revocation checklist and audit log covering Microsoft 365, AWS, and third-party tools. Owner: Kwame Boateng and Leo Park. By: date not yet agreed (asked Kwame Boateng, 24 Nov).
 
 ### Q12 · Is your business continuity and disaster recovery plan tested at least annually?
@@ -112,7 +112,7 @@ We cannot currently show documented agency authorisation for Zendesk and SignalP
 **Gap action:** Establish formal patch SLAs and streamline base-image updates so critical and high findings are resolved within 14 days. Owner: Tom Adeyemi and Leo Park. By: date not yet agreed (asked Tom Adeyemi and Leo Park, 24 Nov).
 
 ### Q15 · Do you use AI tools to process council data?
-**Answer:** Not intentionally via approved company tooling, as CarePath has no AI features, no AI tools are licensed, and Microsoft Copilot is not enabled; however, free ChatGPT has been observed open on two Customer Success laptops for rewriting emails to agencies, and we have no AI policy restricting it.
-**Evidence:** Kwame Boateng, 24 Nov (owner-confirmed: no licensed AI/Copilot, free ChatGPT seen on two Customer Success laptops, no AI policy); Grace Whitfield, 23 Nov (no AI in CarePath known).
+**Answer:** Not through any approved tool. CarePath has no AI features and no AI tools are licensed. However, we have found staff using a free AI chatbot to help rewrite emails to agencies. We have no AI policy yet, so we cannot currently rule out that council data was entered.
+**Evidence:** Kwame Boateng, 24 Nov (owner-confirmed: no licensed AI/Copilot, free AI chatbot seen on two Customer Success laptops, no AI policy); Grace Whitfield, 23 Nov (no AI in CarePath known); Priya Raman, 25 Nov (Grace asked to assess whether care data was pasted in).
 **Confidence:** Gap
-**Gap action:** Establish an AI acceptable-use policy and controls (including GRC-008 AI note-taker policy exception review) and verify whether any council data was entered into external AI tools. Owner: Kwame Boateng and Priya Raman. By: date not yet agreed (asked Kwame Boateng, 24 Nov; GRC-008 scheduled in Dec).
+**Gap action:** Assess whether any care/council data was pasted into external AI tools (Grace Whitfield) and establish an AI policy via GRC-008 (Priya Raman / Kwame Boateng). Owner: Grace Whitfield (data assessment) and Priya Raman / Kwame Boateng (AI policy). By: date not yet agreed (asked Grace Whitfield, 25 Nov; GRC-008 scheduled in Dec).
