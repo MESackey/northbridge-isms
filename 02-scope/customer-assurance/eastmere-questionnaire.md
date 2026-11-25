@@ -58,10 +58,10 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Answer:** No. Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test has not yet been commissioned and is included in our Q1 2027 budget request.
 **Evidence:** Priya Raman, 23 Nov (CREST report dated 14 Feb 2025; highs fixed Apr 2025; 3 mediums open; no 2026 test commissioned; Q1 2027 budget request).
 **Confidence:** Gap
-**Gap action:** Commission an independent penetration test and close remaining medium findings; owner: Priya Raman / leadership budget approval (Q1 2027 target).
+**Gap action:** Commission an independent penetration test and close remaining medium findings; Owner: Priya Raman. By: date not yet agreed (test in David's Q1 2027 budget request).
 
 ### Q7 · Do you maintain a risk register reviewed at least quarterly?
-**Answer:** Not yet. We do not currently maintain a risk register reviewed at least quarterly, and no quarterly review cadence has been agreed yet. We have compiled candidate risks from our discovery and data-flow reviews and are scheduled to rebuild the formal risk register in GRC-006 by 5 December 2026.
+**Answer:** Not yet. We do not currently maintain a risk register reviewed at least quarterly, and no quarterly review cadence has been agreed yet. We have compiled candidate risks from our discovery and data-flow reviews and are scheduled to rebuild the formal risk register by 5 December 2026.
 **Evidence:** company-profile.md (2024 spreadsheet baseline); obligations-register.csv (O-14 Partial); candidate-risks.md (C-01 to C-14); GRC-006 due 5 Dec 2026.
 **Confidence:** Gap
 **Gap action:** Establish the formal risk register in GRC-006 (by 5 Dec 2026) and agree a formal review cadence. Owner: Priya Raman. By: 5 Dec 2026 for register launch; quarterly review date not yet agreed (asked Priya Raman, 23 Nov).
@@ -73,14 +73,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Gap action:** Review IR plan v0.3 and establish/verify the incident response and 24-hour council notification procedure. Owner: Priya Raman (IR plan) and Grace Whitfield (24-hour council notice, O-09). By: date not yet agreed (requested IR plan v0.3 from Priya Raman, 23 Nov; council clause/procedure with Grace Whitfield).
 
 ### Q9 · List every sub-processor that can access council data.
-**Answer:** Partly. Third-party sub-processors associated with CarePath workflows are:
-- AWS (hosting and storage): CarePath application, database, and file storage in London (`eu-west-2`).
-- Zendesk (customer support ticketing): support tickets and attached care-plan screenshots; account hosted in the EU (Ireland and Germany).
-- SignalPost (SMS appointment reminders): service-user first name, mobile number, and visit time; UK company (message log storage location unconfirmed).
-We cannot currently show documented agency authorisation for Zendesk and SignalPost as sub-processors, and Grace Whitfield will send agencies a sub-processor notice by Friday 4 December 2026.
-**Evidence:** data-flow-care-record.md (F2–F10); data-inventory.csv (D-01 to D-09); obligations-register.csv (O-02 Not met); Grace Whitfield, 16 Nov (C-14) and 23 Nov (EU hosting; notice by 4 Dec).
-**Confidence:** Partial
-**Gap action:** Issue sub-processor notice to agencies and confirm documented sub-processor authorisations (C-14). Owner: Grace Whitfield. By: Fri 4 Dec 2026.
+**Answer:** Our sub-processors are: AWS (hosting and storage—CarePath application, database, and file storage in London eu-west-2); Zendesk (customer support ticketing—support tickets and attached care-plan screenshots; account hosted in the EU in Ireland and Germany); and SignalPost (SMS appointment reminders—service-user first name, mobile number, and visit time; UK company with message log storage location unconfirmed). We cannot currently show documented agency authorisation for Zendesk and SignalPost as sub-processors, and our DPO will send agencies a sub-processor notice by Friday 4 December 2026.
 
 ### Q10 · Are all staff trained in security annually, and vetted before access?
 **Answer:**
