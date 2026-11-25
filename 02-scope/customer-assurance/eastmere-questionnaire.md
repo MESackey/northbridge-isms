@@ -25,7 +25,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 ## Answers
 
 ### Q1 · Do you hold ISO 27001 certification?
-**Answer:** No, not yet. We are building an information security management system aligned to ISO 27001. Its scope was approved on 21 November 2026, and our board's target is certification by Q3 2027. In the meantime we hold Cyber Essentials Plus and DSPT Standards Met (see Q2 and Q13).
+**Answer:** Working towards ISO 27001 certification, target Q3 2027. We do not hold certification today; our scope was approved on 21 November 2026, and in the meantime we hold Cyber Essentials Plus and DSPT Standards Met (see Q2 and Q13).
 **Evidence:** company-profile.md (board target Q3 2027); isms-scope.md v1.0 (approved 21 Nov 2026); Priya, 23 Nov (no certificate).
 **Confidence:** Gap
 **Gap action:** Now: ISMS scope approved. Next: risk register rebuilt (GRC-006, Dec 2026). Owner: Priya Raman. Target: certification Q3 2027 (board target, no audit booked yet).
@@ -49,13 +49,13 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Gap action:** Review and retire/rotate the legacy deployment access key, verify production MFA configurations, and formalise governance around break-glass and service account exceptions. Owner: Leo Park (AWS) and Kwame Boateng (Microsoft 365). By: date not yet agreed (asked Leo Park and Kwame Boateng, 24 Nov).
 
 ### Q5 · Is council data encrypted at rest and in transit?
-**Answer:** Partly. In transit: connections from the internet to CarePath use TLS 1.2. Traffic between our load balancer and our application servers, inside our private AWS network, is not yet encrypted. SMS appointment reminders are standard text messages, which are not encrypted. At rest: documents in our file storage are encrypted, but our main database and its backups are not yet encrypted. Leadership has agreed to encrypt the database and backups, with a target before 31 December 2026.
+**Answer:** Partly. In transit: connections from the internet to CarePath use TLS 1.2. Traffic between our load balancer and our application servers, inside our private AWS network, is not yet encrypted. SMS appointment reminders are standard text messages, which are not encrypted. At rest: documents in our file storage are encrypted, while our main database and its backups are not yet encrypted and have a leadership target to be encrypted before 31 December 2026.
 **Evidence:** Leo Park, 23 Nov (owner-confirmed, not verified); Priya Raman, 24 Nov (CTO agreed database and backup encryption target before 31 Dec 2026); data-flow-care-record.md F3, F4, F10, F13; C-12.
 **Confidence:** Gap
 **Gap action:** Encrypt production database and backups (C-12; ~2 hours downtime) and address unencrypted load-balancer-to-app and SMS reminder paths. Owner: David Lin (decision) and Leo Park (delivery). By: before 31 Dec 2026 for database/backup encryption target; load-balancer-to-app date not yet agreed (asked Leo Park, 23 Nov).
 
 ### Q6 · Do you commission an independent penetration test at least annually?
-**Answer:** No. Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test has not yet been commissioned and is included in our Q1 2027 budget request.
+**Answer:** No. Our most recent independent penetration test by a CREST-accredited firm took place on 14 February 2025, which is more than 12 months ago. That test identified no critical findings, two high-severity findings (both resolved by April 2025), and six medium-severity findings (three remain open). A follow-up test is included in our Q1 2027 budget request and has not yet been commissioned.
 **Evidence:** Priya Raman, 23 Nov (CREST report dated 14 Feb 2025; highs fixed Apr 2025; 3 mediums open; no 2026 test commissioned; Q1 2027 budget request).
 **Confidence:** Gap
 **Gap action:** Commission an independent penetration test and close remaining medium findings. Owner: Priya Raman. By: date not yet agreed (test in David's Q1 2027 budget request).
@@ -83,7 +83,7 @@ We cannot currently show documented agency authorisation for Zendesk and SignalP
 **Gap action:** Issue sub-processor notice to agencies and confirm documented sub-processor authorisations (C-14). Owner: Grace Whitfield. By: Fri 4 Dec 2026.
 
 ### Q10 · Are all staff trained in security annually, and vetted before access?
-**Answer:** No. New starters complete an online security module in week one, but there has been no annual security refresher training since 2024. Pre-employment vetting includes references and right-to-work checks for all staff, while basic DBS checks are carried out only for support agents viewing care records and not for engineers with production access.
+**Answer:** No. New starters complete an online security module in week one, though there has been no annual security refresher training since 2024. Pre-employment vetting includes reference and right-to-work checks for all staff, with basic DBS checks carried out for support agents viewing care records (and not currently across all roles, including engineering staff with production access).
 **Evidence:** Kwame Boateng, 24 Nov (owner-confirmed: week-one module, no annual refresher since 2024, vetting/DBS scope).
 **Confidence:** Gap
 **Gap action:** Restore annual security refresher training and review pre-employment vetting/DBS requirements across roles. Owner: Kwame Boateng and HR/leadership. By: date not yet agreed (asked Kwame Boateng, 24 Nov).
