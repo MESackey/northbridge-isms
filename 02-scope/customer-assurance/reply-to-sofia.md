@@ -6,9 +6,10 @@ To protect your bid, every gap has an owner and clear next steps, including our 
 
 Please review the draft for commercial wording, so the facts stay as evidenced, by Friday 27 November; Priya will complete final sign-off before the 4 December submission.
 
-## Reply 2 · Thu 26 Nov
-I can use your wording for Q1 ("Working towards ISO 27001 certification, target Q3 2027") and frame database encryption around leadership's agreed target before 31 December rather than "in progress" since work is not yet underway.
+## Reply 2 · Wed 25 Nov
+I can use your Q1 wording ("Working towards ISO 27001 certification, target Q3 2027") and note leadership's target to encrypt the database before 31 December. The tender scores "a credible plan", and every gap here has an owner and a date.
 
-I cannot say we run an annual testing programme, drop the DBS check detail, or answer "No" on AI tools, because stating an unverified or inaccurate position risks a council audit challenge if tested.
-
-Instead, we can note Q1 2027 budget plans for testing, highlight right-to-work and reference checks plus support DBS checks, and note Grace's review on AI use.
+Three things I can't change, because unverified claims risk a council audit challenge if tested:
+- Q6: we don't run an annual testing programme yet (we'll note Q1 2027 budget plans).
+- Q10: we must state DBS coverage accurately alongside right-to-work and reference checks.
+- Q15: we can't answer "No" while our DPO reviews AI use.
