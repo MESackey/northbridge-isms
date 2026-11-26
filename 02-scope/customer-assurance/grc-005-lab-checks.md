@@ -22,3 +22,4 @@ Scope: the lab AWS account only. Leo confirmed (23 Nov) that the lab doesn't mat
 - L1 to L3 → ask Leo for the IAM Identity Center MFA settings page and the IAM Users list for production (user names, MFA and key age only; no IDs). Leo has already mentioned one key over a year old (ci-deploy).
 - L4 to L6 → ask Leo for S3 default encryption settings, RDS and snapshot encryption settings (C-12), and EC2/EBS default encryption/load-balancer-to-app transport encryption details for production.
 - L7 and L8 → ask Leo for production container image/AMI build and patching details plus Systems Manager Fleet Manager or patch compliance status for production workloads.
+- L8 → not applicable: production runs on Fargate containers with no EC2 servers (Leo, 25 Nov); patching is measured by image rebuilds (Tom's export, Q14).

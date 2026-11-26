@@ -24,11 +24,11 @@ UK GDPR / DPA 2018 · NHS DSPT · Cyber Essentials Plus · SOC 2 Trust Services 
 
 ## Progress
 
-- [ ] Week  1 · GRC-001 · Onboarding: build your company profile · due Sat 31 Oct 12:00
-- [ ] Week  2 · GRC-002 · Asset inventory for the auditor · due Sat 7 Nov 12:00
-- [ ] Week  3 · GRC-003 · Where is our care data? · due Sat 14 Nov 12:00
-- [ ] Week  4 · GRC-004 · ISMS scope and what we must comply with · due Sat 21 Nov 12:00 (+ Month-1 report)
-- [ ] Week  5 · GRC-005 · Eastmere security questionnaire · due Draft Thu 26 Nov 21:00; final Sat 28 Nov 12:00
+- [x] Week  1 · GRC-001 · Onboarding: build your company profile 
+- [x] Week  2 · GRC-002 · Asset inventory for the auditor 
+- [x] Week  3 · GRC-003 · Where is our care data? 
+- [x] Week  4 · GRC-004 · ISMS scope and what we must comply with 
+- [x] Week 5 · Customer assurance (Eastmere questionnaire)
 - [ ] Week  6 · GRC-006 · Rebuild the risk register · due Sat 5 Dec 12:00
 - [ ] Week  7 · GRC-007 · New supplier: Rotamind · due Sat 12 Dec 12:00
 - [ ] Week  8 · GRC-008 · Exception request: AI note-taker for Sales · due Thu 17 Dec 21:00 (+ Month-2 report Sat 19 Dec 12:00)

@@ -1,4 +1,4 @@
-# Eastmere supplier security questionnaire · Draft v0.1 · sent to Sofia Wed 25 Nov
+# Eastmere supplier security questionnaire · Final v1.0 · for Priya's sign-off · Wed 25 Nov
 Prepared by: Junior GRC Analyst · Review: Sofia Brennan (wording), Grace Whitfield (Q3, Q9) · Sign-off: Priya Raman
 Council data means: service users' care records, visit logs and GPS, agency staff details including DBS scans (criminal offence data), and council invoices. All Restricted. (Grace, 23 Nov)
 The Evidence and Gap action lines are internal. They are removed before this goes to Eastmere.
@@ -43,14 +43,14 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 **Gap action:** Confirm SignalPost message log storage location and document UK/EU data residency details. Owner: Grace Whitfield. By: date not yet agreed (asked Grace Whitfield, 23 Nov).
 
 ### Q4 · Is MFA enforced for all staff and all administrative access?
-**Answer:** Partly. All staff Microsoft 365 accounts are covered by a Conditional Access policy requiring MFA, except a break-glass admin account excluded by design (whose password is in the office safe) and a printer scan-to-email account. For production AWS administrative access, engineers authenticate via IAM Identity Center with MFA enforced and root uses a hardware key, though one legacy deployment account uses long-lived access keys over a year old without console MFA.
-**Evidence:** Kwame Boateng, 24 Nov (Entra MFA registration export seen 24 Nov; break-glass password in safe; `scan-sthn` excluded); Leo Park, 23 Nov (production MFA and `ci-deploy` key age owner-confirmed, not verified).
+**Answer:** Partly. All staff Microsoft 365 accounts are covered by a Conditional Access policy requiring MFA, except a break-glass admin account excluded by design (whose password is in the office safe) and a printer scan-to-email account. For production AWS administrative access, engineers authenticate via IAM Identity Center with MFA required on every sign-in and root uses a hardware key, though one legacy deployment account uses an active access key over a year old without console MFA.
+**Evidence:** Kwame Boateng, 24 Nov (Entra MFA registration export seen 24 Nov; break-glass password in safe; `scan-sthn` excluded); production screenshots seen 25 Nov (Leo Park: IAM Identity Center MFA required on every sign-in; `ci-deploy` active key 412 days old); Leo Park, 23 Nov (root hardware key owner-confirmed, not verified).
 **Confidence:** Partial
-**Gap action:** Review and retire/rotate the legacy deployment access key, verify production MFA configurations, and formalise governance around break-glass and service account exceptions. Owner: Leo Park (AWS) and Kwame Boateng (Microsoft 365). By: date not yet agreed (asked Leo Park and Kwame Boateng, 24 Nov).
+**Gap action:** Review and retire/rotate the legacy deployment access key, verify root MFA configuration, and formalise governance around break-glass and service account exceptions. Owner: Leo Park (AWS) and Kwame Boateng (Microsoft 365). By: date not yet agreed (asked Leo Park and Kwame Boateng, 24 Nov).
 
 ### Q5 · Is council data encrypted at rest and in transit?
 **Answer:** Partly. In transit: connections from the internet to CarePath use TLS 1.2. Traffic between our load balancer and our application servers, inside our private AWS network, is not yet encrypted. SMS appointment reminders are standard text messages, which are not encrypted. At rest: documents in our file storage are encrypted, while our main database and its backups are not yet encrypted and have a leadership target to be encrypted before 31 December 2026.
-**Evidence:** Leo Park, 23 Nov (owner-confirmed, not verified); Priya Raman, 24 Nov (CTO agreed database and backup encryption target before 31 Dec 2026); data-flow-care-record.md F3, F4, F10, F13; C-12.
+**Evidence:** Production screenshots seen 25 Nov (Leo Park: S3 document bucket SSE-S3 default encryption enabled; RDS CarePath database "Encryption: Not enabled"); Leo Park, 23 Nov (load balancer to app HTTP and RDS backups unencrypted owner-confirmed, not verified); Priya Raman, 24 Nov (CTO agreed database and backup encryption target before 31 Dec 2026); data-flow-care-record.md F3, F4, F10, F13; C-12.
 **Confidence:** Gap
 **Gap action:** Encrypt production database and backups (C-12; ~2 hours downtime) and address unencrypted load-balancer-to-app and SMS reminder paths. Owner: David Lin (decision) and Leo Park (delivery). By: before 31 Dec 2026 for database/backup encryption target; load-balancer-to-app date not yet agreed (asked Leo Park, 23 Nov).
 
@@ -62,7 +62,7 @@ The Evidence and Gap action lines are internal. They are removed before this goe
 
 ### Q7 · Do you maintain a risk register reviewed at least quarterly?
 **Answer:** Not yet. We do not currently maintain a risk register reviewed at least quarterly, though we have compiled candidate risks from our discovery and data-flow reviews and are scheduled to establish the formal risk register by 5 December 2026. Our security steering group will review the register quarterly starting in January 2027.
-**Evidence:** company-profile.md (2024 spreadsheet baseline); obligations-register.csv (O-14 Partial); candidate-risks.md (C-01 to C-14); Priya Raman, 24 Nov (quarterly steering group review from Jan 2027); GRC-006 due 5 Dec 2026.
+**Evidence:** company-profile.md (2024 spreadsheet baseline); obligations-register.csv (O-14 Partial); candidate-risks.md (C-01 to C-24); Priya Raman, 24 Nov (quarterly steering group review from Jan 2027); GRC-006 due 5 Dec 2026.
 **Confidence:** Gap
 **Gap action:** Launch the formal risk register and initiate quarterly steering group reviews. Owner: Priya Raman. By: 5 Dec 2026 for register launch; first quarterly review Jan 2027.
 

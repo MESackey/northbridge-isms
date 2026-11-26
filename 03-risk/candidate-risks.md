@@ -15,7 +15,7 @@ Listed during GRC-002 (12 Nov 2026); C-15 onwards added during GRC-005 (Eastmere
 | C-09 | Unencrypted reminder texts sending visit details and names by SMS | GRC-003 W3 (flows F9/F10) | Data D-07 |
 | C-10 | Restricted invoice reports exported and stored on staff laptops | GRC-003 W4 (flow F11) | Data D-08 |
 | C-11 | 90-day deletion after a customer leaves is promised but never checked | GRC-003 W5 (flow F12) | Data D-01 |
-| C-12 | Production PostgreSQL database and its backups/snapshots are not encrypted at rest (created in 2021; ~2 hours downtime to restore from an encrypted copy) | GRC-004 Inbox (Leo, 17 Nov) | Data D-01, D-04 |
+| C-12 | Production PostgreSQL database and its backups/snapshots are not encrypted at rest (created in 2021; ~2 hours downtime to restore from an encrypted copy) | GRC-004 Inbox (Leo, 17 Nov) ; database "Encryption: Not enabled" verified 25 Nov (Leo RDS screenshot; backups/snapshots remain owner-confirmed unencrypted) | Data D-01, D-04 |
 | C-13 | No Data Protection Impact Assessment (DPIA) exists for carers' GPS check-in tracking (live since 2023; required under ICO guidance for location tracking) | GRC-004 Inbox (Grace, 16 Nov; answers Q3) | Data D-09 |
 | C-14 | Cannot demonstrate that care agencies (controllers) authorised Zendesk and SignalPost as sub-processors under UK GDPR Article 28 | GRC-004 Inbox (Grace, 16 Nov) | Data D-06, D-07 |
 | C-15 | No independent penetration test since 14 Feb 2025, and 3 medium findings from it are still open, so new weaknesses in CarePath may be unknown | GRC-005 Q6 (Priya, 23 Nov) | A-008, A-012 |
